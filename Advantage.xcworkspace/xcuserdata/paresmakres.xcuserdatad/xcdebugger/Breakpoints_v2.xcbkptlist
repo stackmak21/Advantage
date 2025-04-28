@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "47DF1F1A-D491-4306-876D-E55A326CDC7E"
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B690B0A5-E307-4A62-99A8-5605A5A1DC37"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Advantage/Networking/NetworkClient.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "77"
+            endingLineNumber = "77"
+            landmarkName = "handleResponse(_:_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "805BA1F3-0514-4381-A56E-CB11CE5D2BAC"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Advantage/Networking/NetworkClient.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
+            landmarkName = "execute(host:endpoint:authToken:queryItems:urlScheme:urlPort:httpMethod:headers:timeInterval:requestBody:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B909A3A0-17D2-401D-B954-ED6CDEA7EA9A"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Advantage/Networking/NetworkClient.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "104"
+            endingLineNumber = "104"
+            landmarkName = "buildURL(url:scheme:host:port:endpoint:queryItems:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "CC0CAB40-2FA7-482A-852A-BB90FC856250"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Advantage/Networking/NetworkClient.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "81"
+            endingLineNumber = "81"
+            landmarkName = "handleResponse(_:_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C0D78027-7938-4CFB-85D7-54F17CE1E477"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Advantage/Networking/NetworkClient.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
+            landmarkName = "handleResponse(_:_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0709F357-03E2-40CC-862B-F28A84DCFD30"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Advantage/Networking/NetworkClient.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "88"
+            endingLineNumber = "88"
+            landmarkName = "handleResponse(_:_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "256163B7-B01B-4028-B526-83EF13E0EF66"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Advantage/Networking/NetworkClient.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "80"
+            endingLineNumber = "80"
+            landmarkName = "handleResponse(_:_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D12BB9B9-E02D-4E65-92DA-DF147E08BBE4"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Advantage/Networking/NetworkClient.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "88"
+            endingLineNumber = "88"
+            landmarkName = "handleResponse(_:_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A750DB2E-0680-4FC8-A0DE-015F32ECE721"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Advantage/Networking/NetworkClient.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "105"
+            endingLineNumber = "105"
+            landmarkName = "buildURL(url:scheme:host:port:endpoint:queryItems:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E3CBFEAA-B13E-411F-B953-3CA5A85F80B0"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Advantage/Networking/NetworkClient.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "89"
+            endingLineNumber = "89"
+            landmarkName = "handleResponse(_:_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1B69EFA3-E6FA-44CE-89BE-7BF268F28005"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Advantage/Networking/NetworkClient.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "51"
+            endingLineNumber = "51"
+            landmarkName = "execute(host:endpoint:authToken:queryItems:urlScheme:urlPort:httpMethod:headers:timeInterval:requestBody:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "1B69EFA3-E6FA-44CE-89BE-7BF268F28005 - 1cc08635c53a1e42"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(4) suspend resume partial function for Advantage.NetworkClient.execute&lt;&#x3c4;_0_0, &#x3c4;_0_1 where &#x3c4;_0_0: Swift.Decodable, &#x3c4;_0_0: Swift.Encodable, &#x3c4;_0_1: Swift.Decodable, &#x3c4;_0_1: Swift.Encodable, &#x3c4;_0_1: Swift.Error&gt;(host: Swift.String, endpoint: Swift.String, authToken: Swift.String, queryItems: Swift.Dictionary&lt;Swift.String, Swift.String&gt;, urlScheme: Advantage.URLScheme, urlPort: Swift.Optional&lt;Swift.Int&gt;, httpMethod: Advantage.HttpMethod, headers: Swift.Dictionary&lt;Swift.String, Swift.String&gt;, timeInterval: Swift.Double, requestBody: Swift.Optional&lt;Foundation.Data&gt;) async -&gt; Swift.Result&lt;Swift.Optional&lt;&#x3c4;_0_0&gt;, &#x3c4;_0_1&gt;"
+                  moduleName = "Advantage.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/paresmakres/Documents/GitHub/Advantage/Advantage/Networking/NetworkClient.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "51"
+                  endingLineNumber = "51">
+               </Location>
+               <Location
+                  uuid = "1B69EFA3-E6FA-44CE-89BE-7BF268F28005 - 72d956e902ee7d5f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for Advantage.NetworkClient.execute&lt;&#x3c4;_0_0, &#x3c4;_0_1 where &#x3c4;_0_0: Swift.Decodable, &#x3c4;_0_0: Swift.Encodable, &#x3c4;_0_1: Swift.Decodable, &#x3c4;_0_1: Swift.Encodable, &#x3c4;_0_1: Swift.Error&gt;(host: Swift.String, endpoint: Swift.String, authToken: Swift.String, queryItems: Swift.Dictionary&lt;Swift.String, Swift.String&gt;, urlScheme: Advantage.URLScheme, urlPort: Swift.Optional&lt;Swift.Int&gt;, httpMethod: Advantage.HttpMethod, headers: Swift.Dictionary&lt;Swift.String, Swift.String&gt;, timeInterval: Swift.Double, requestBody: Swift.Optional&lt;Foundation.Data&gt;) async -&gt; Swift.Result&lt;Swift.Optional&lt;&#x3c4;_0_0&gt;, &#x3c4;_0_1&gt;"
+                  moduleName = "Advantage.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/paresmakres/Documents/GitHub/Advantage/Advantage/Networking/NetworkClient.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "51"
+                  endingLineNumber = "51">
+               </Location>
+               <Location
+                  uuid = "1B69EFA3-E6FA-44CE-89BE-7BF268F28005 - 546f15f604b4f143"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(5) suspend resume partial function for Advantage.NetworkClient.execute&lt;&#x3c4;_0_0, &#x3c4;_0_1 where &#x3c4;_0_0: Swift.Decodable, &#x3c4;_0_0: Swift.Encodable, &#x3c4;_0_1: Swift.Decodable, &#x3c4;_0_1: Swift.Encodable, &#x3c4;_0_1: Swift.Error&gt;(host: Swift.String, endpoint: Swift.String, authToken: Swift.String, queryItems: Swift.Dictionary&lt;Swift.String, Swift.String&gt;, urlScheme: Advantage.URLScheme, urlPort: Swift.Optional&lt;Swift.Int&gt;, httpMethod: Advantage.HttpMethod, headers: Swift.Dictionary&lt;Swift.String, Swift.String&gt;, timeInterval: Swift.Double, requestBody: Swift.Optional&lt;Foundation.Data&gt;) async -&gt; Swift.Result&lt;Swift.Optional&lt;&#x3c4;_0_0&gt;, &#x3c4;_0_1&gt;"
+                  moduleName = "Advantage.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/paresmakres/Documents/GitHub/Advantage/Advantage/Networking/NetworkClient.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "51"
+                  endingLineNumber = "51">
+               </Location>
+               <Location
+                  uuid = "1B69EFA3-E6FA-44CE-89BE-7BF268F28005 - 6f0da5b744275044"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(6) suspend resume partial function for Advantage.NetworkClient.execute&lt;&#x3c4;_0_0, &#x3c4;_0_1 where &#x3c4;_0_0: Swift.Decodable, &#x3c4;_0_0: Swift.Encodable, &#x3c4;_0_1: Swift.Decodable, &#x3c4;_0_1: Swift.Encodable, &#x3c4;_0_1: Swift.Error&gt;(host: Swift.String, endpoint: Swift.String, authToken: Swift.String, queryItems: Swift.Dictionary&lt;Swift.String, Swift.String&gt;, urlScheme: Advantage.URLScheme, urlPort: Swift.Optional&lt;Swift.Int&gt;, httpMethod: Advantage.HttpMethod, headers: Swift.Dictionary&lt;Swift.String, Swift.String&gt;, timeInterval: Swift.Double, requestBody: Swift.Optional&lt;Foundation.Data&gt;) async -&gt; Swift.Result&lt;Swift.Optional&lt;&#x3c4;_0_0&gt;, &#x3c4;_0_1&gt;"
+                  moduleName = "Advantage.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/paresmakres/Documents/GitHub/Advantage/Advantage/Networking/NetworkClient.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "51"
+                  endingLineNumber = "51">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
