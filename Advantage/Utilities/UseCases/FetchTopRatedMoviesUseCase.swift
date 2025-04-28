@@ -1,13 +1,14 @@
 //
-//  FetchPopularMoviesUseCase.swift
+//  FetchTopRatedMoviesUseCase.swift
 //  Advantage
 //
-//  Created by Paris Makris on 25/4/25.
+//  Created by Paris Makris on 28/4/25.
 //
 
 import Foundation
 
-struct FetchPopularMoviesUseCase{
+
+struct FetchTopRatedMoviesUseCase{
     
     private let repository: MoviesRepositoryContract
     
@@ -16,6 +17,6 @@ struct FetchPopularMoviesUseCase{
     }
     
     func invoke() async -> Result<[Movie], MovieDBError> {
-        return await repository.fetchPopularMovies()
+        return await repository.fetchTopRatedMovies()
     }
 }

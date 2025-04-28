@@ -20,9 +20,9 @@ struct MoviesApi {
         self.client = client
     }
     
-    func fetchPopularMovies() async -> Result<[PopularMovieItemDto], MovieDBResponseRaw> {
+    func fetchPopularMovies() async -> Result<[MovieDto], MovieDBResponseRaw> {
         let apiKey = keychain.get(key: .apiKey) ?? ""
-        let response: Result<PopularMoviesDto?, MovieDBResponseRaw> = await client.execute(
+        let response: Result<MoviesDto?, MovieDBResponseRaw> = await client.execute(
             host: Host.moviesDB,
             endpoint: Endpoints.popularMovies,
             queryItems: ["api_key": apiKey]
@@ -30,6 +30,24 @@ struct MoviesApi {
         switch response{
         case .success(let popularMovies):
             if let movies = popularMovies?.results{
+                return .success(movies)
+            }
+            return .failure(MovieDBResponseRaw())
+        case .failure(let error):
+            return .failure(error)
+        }
+    }
+    
+    func fetchTopRatedMovies() async -> Result<[MovieDto], MovieDBResponseRaw> {
+        let apiKey = keychain.get(key: .apiKey) ?? ""
+        let response: Result<MoviesDto?, MovieDBResponseRaw> = await client.execute(
+            host: Host.moviesDB,
+            endpoint: Endpoints.topRatedMovies,
+            queryItems: ["api_key": apiKey]
+        )
+        switch response{
+        case .success(let topRatedMovies):
+            if let movies = topRatedMovies?.results{
                 return .success(movies)
             }
             return .failure(MovieDBResponseRaw())

@@ -8,7 +8,12 @@
 import Foundation
 
 struct MoviesRepositoryMock: MoviesRepositoryContract{
-    func fetchPopularMovies() async -> Result<[PopularMovieItem], MovieDBError>{
+    
+    func fetchPopularMovies() async -> Result<[Movie], MovieDBError>{
+        return .success(DeveloperPreview.popularMovies)
+    }
+    
+    func fetchTopRatedMovies() async -> Result<[Movie], MovieDBError>{
         return .success(DeveloperPreview.popularMovies)
     }
 }

@@ -15,8 +15,14 @@ struct MoviesRepository: MoviesRepositoryContract {
         self.moviesApi = MoviesApi(client: client)
     }
     
-    func fetchPopularMovies() async -> Result<[PopularMovieItem], MovieDBError> {
+    func fetchPopularMovies() async -> Result<[Movie], MovieDBError> {
         return await moviesApi.fetchPopularMovies()
+            .map({ $0.map({ $0.toPopularItem() }) })
+            .mapError({ $0.toMovieDBError() })
+    }
+    
+    func fetchTopRatedMovies() async -> Result<[Movie], MovieDBError> {
+        return await moviesApi.fetchTopRatedMovies()
             .map({ $0.map({ $0.toPopularItem() }) })
             .mapError({ $0.toMovieDBError() })
     }

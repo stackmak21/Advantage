@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct PopularMovieItem: Identifiable {
+struct Movie: Identifiable {
     let id: Int
     let adult: Bool
     let backdropPath: String

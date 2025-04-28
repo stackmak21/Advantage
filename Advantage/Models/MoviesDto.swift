@@ -8,9 +8,9 @@
 import Foundation
 
 
-struct PopularMoviesDto: Codable {
+struct MoviesDto: Codable {
     let page: Double?
-    let results: [PopularMovieItemDto]?
+    let results: [MovieDto]?
     let totalPages: Double?
     let totalResults: Double?
     

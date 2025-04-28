@@ -8,5 +8,6 @@
 import Foundation
 
 protocol MoviesRepositoryContract{
-    func fetchPopularMovies() async -> Result<[PopularMovieItem], MovieDBError>
+    func fetchPopularMovies() async -> Result<[Movie], MovieDBError>
+    func fetchTopRatedMovies() async -> Result<[Movie], MovieDBError>
 }

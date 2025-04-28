@@ -9,7 +9,7 @@ import Foundation
 
 struct DeveloperPreview{
     
-    static let popularMovieItem = PopularMovieItem(
+    static let popularMovieItem = Movie(
         id: 1197306,
         adult: false,
         backdropPath: "/fTrQsdMS2MUw00RnzH0r3JWHhts.jpg",
@@ -26,16 +26,16 @@ struct DeveloperPreview{
         voteCount: 429
     )
     
-    static var popularMovies: [PopularMovieItem] {
-        var popularMovies: [PopularMovieItem] = []
+    static var popularMovies: [Movie] {
+        var popularMovies: [Movie] = []
         for i in 1...10{
             popularMovies.append(popularMovieItem(i))
         }
         return popularMovies
     }
     
-    private static func popularMovieItem(_ id: Int) -> PopularMovieItem {
-        return PopularMovieItem(
+    private static func popularMovieItem(_ id: Int) -> Movie {
+        return Movie(
             id: 1197 + id,
             adult: false,
             backdropPath: "/fTrQsdMS2MUw00RnzH0r3JWHhts.jpg",

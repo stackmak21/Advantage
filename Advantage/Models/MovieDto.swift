@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct PopularMovieItemDto: Codable {
+struct MovieDto: Codable {
     
     let id: Int?
     let adult: Bool?
@@ -35,8 +35,8 @@ struct PopularMovieItemDto: Codable {
         case voteCount = "vote_count"
     }
     
-    func toPopularItem() -> PopularMovieItem{
-        return PopularMovieItem(
+    func toPopularItem() -> Movie{
+        return Movie(
             id: self.id ?? 0,
             adult: self.adult ?? false,
             backdropPath: self.backdropPath ?? "",
