@@ -24,7 +24,7 @@ struct PopularMovieThumbnailView: View {
                         .minimumScaleFactor(0.7)
                         .lineLimit(1)
                         .frame(maxWidth: .infinity, alignment: .leading)
-                    Text(movie.releaseDate)
+                    Text(movie.releaseDate.formatDate(to: "YYYY.MM.dd"))
                         .font(Typography.regular(size: 14))
                         .foregroundColor(Color.gray)
                         .frame(maxWidth: .infinity, alignment: .leading)

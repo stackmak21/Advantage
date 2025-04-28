@@ -33,27 +33,35 @@ class HomeViewModel: ObservableObject {
     }
     
     
-    func fetchPopularMovies() {
-        let task = Task{
-            let response = await fetchPopularMoviesUseCase.invoke()
-            switch response {
-            case .success(let result):
-                popularMovies = result
-            case .failure(let error):
-                Logger.error(error.statusMessage, showCurrentThread: true)
-            }
+    private func fetchPopularMovies() async {
+        let response = await fetchPopularMoviesUseCase.invoke()
+        switch response {
+        case .success(let result):
+            popularMovies = result
+        case .failure(let error):
+            Logger.error(error.statusMessage, showCurrentThread: true)
         }
-        tasks.append(task)
     }
     
-    func fetchTopRatedMovies() {
-        let task = Task{
-            let response = await fetchPopularMoviesUseCase.invoke()
+    private func fetchTopRatedMovies() async {
+        let response = await fetchTopRatedMoviesUseCase.invoke()
             switch response {
             case .success(let result):
                 topRatedMovies = result
             case .failure(let error):
                 Logger.error(error.statusMessage, showCurrentThread: true)
+        }
+    }
+    
+    func fetchHomeMovies(){
+        let task = Task{
+            await withTaskGroup(of: Void.self) { group in
+                group.addTask {
+                    await self.fetchPopularMovies()
+                }
+                group.addTask {
+                    await self.fetchTopRatedMovies()
+                }
             }
         }
         tasks.append(task)
