@@ -88,7 +88,7 @@ class HomeViewModel: BaseViewModel {
     func hitDebounce(){
         Task{
             isHitAllowed = false
-            try? await Task.sleep(seconds: 1)
+            try? await Task.sleep(seconds: 0.2)
             isHitAllowed = true
         }
     }
