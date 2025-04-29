@@ -84,7 +84,10 @@ struct MoviesApi {
         let response: Result<MovieDetailsDto?, MovieDBResponseRaw> = await client.execute(
             host: Host.moviesDB,
             endpoint: Endpoints.movieDetails(movieId: movieId),
-            queryItems: ["api_key": apiKey]
+            queryItems: [
+                "api_key": apiKey,
+                "language": "en-US"
+            ]
         )
         switch response{
         case .success(let selectedMovieDetails):
@@ -103,7 +106,10 @@ struct MoviesApi {
         let response: Result<MovieCreditsDto?, MovieDBResponseRaw> = await client.execute(
             host: Host.moviesDB,
             endpoint: Endpoints.movieCredits(movieId: movieId),
-            queryItems: ["api_key": apiKey]
+            queryItems: [
+                "api_key": apiKey,
+                "language": "en-US"
+            ]
         )
         switch response{
         case .success(let movieCredits):

@@ -28,7 +28,7 @@ struct MovieDetailsScreen: View {
                         .foregroundColor(Color.customWhite)
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .padding(.horizontal)
-                    Text("Cast")
+                    Text(Strings.cast)
                         .font(Typography.medium(size: 18))
                         .foregroundColor(Color.customWhite)
                         .frame(maxWidth: .infinity, alignment: .leading)
@@ -91,45 +91,3 @@ struct MovieDetailsScreen: View {
     }
     
 }
-
-
-//ZStack{
-//    Rectangle()
-//        .fill(LinearGradient(colors: [.black.opacity(0.1), .black], startPoint: .top, endPoint: .bottom))
-//        .frame(height: proxy.size.height / 2)
-//        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
-//    HStack{
-//        VStack{
-//            HStack{
-//                Text(viewModel.movieDetails.originalTitle)
-//                    .font(Typography.bold(size: 22))
-//                    .foregroundColor(Color.white)
-//                    .frame(maxWidth: .infinity, alignment: .leading)
-//                Spacer()
-//                let rating = String(format: "%.1f", viewModel.movieDetails.voteAverage.round(to: 1))
-//                Text(rating)
-//                    .font(Typography.medium(size: 18))
-//                    .foregroundColor(Color.white)
-//                Image(systemName: "star.fill")
-//                    .resizable()
-//                    .aspectRatio(contentMode: .fit)
-//                    .frame(width: 20)
-//                    .foregroundColor(Color.yellow.opacity(0.8))
-//            }
-//            Text(viewModel.movieDetails.releaseDate.formatDate(to: "YYYY"))
-//                .font(Typography.regular(size: 16))
-//                .foregroundColor(Color.gray)
-//                .frame(maxWidth: .infinity, alignment: .leading)
-//            HStack{
-//                ForEach(viewModel.movieDetails.genres, id: \.id){ genre in
-//                    GenreTagView(genre: genre.name)
-//                }
-//            }
-//            .frame(maxWidth: .infinity, alignment: .leading)
-//        }
-//        Spacer()
-//
-//
-//    }
-//    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
-//}

@@ -18,9 +18,9 @@ struct SearchIcon: View {
                 .foregroundColor(Color.black.opacity(0.8))
                 .frame(width: 20)
                 .padding()
-                .background(.white)
+                .background(.customWhite)
                 .clipShape(RoundedRectangle(cornerRadius: 12))
-                .shadow(color: .black.opacity(0.1), radius: 6, x: 1, y: 2)
+                .shadow(color: .customDarkGray.opacity(0.2), radius: 6, x: 1, y: 2)
             
         }
     }

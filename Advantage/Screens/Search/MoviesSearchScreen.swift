@@ -18,7 +18,6 @@ struct MoviesSearchScreen: View {
     var body: some View {
         VStack{
             SearchBarView(searchText: $viewModel.searchText, onDebounceSearch: {
-                print(viewModel.searchText)
                 viewModel.fetchRequestedMovies()
             })
             Spacer()

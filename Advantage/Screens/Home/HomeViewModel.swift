@@ -8,7 +8,7 @@
 import Foundation
 
 @MainActor
-class HomeViewModel: ObservableObject {
+class HomeViewModel: BaseViewModel {
     
     private var tasks: [Task<Void, Never>] = []
     private let client: NetworkClient
@@ -16,8 +16,10 @@ class HomeViewModel: ObservableObject {
     private let fetchPopularMoviesUseCase: FetchPopularMoviesUseCase
     private let fetchTopRatedMoviesUseCase: FetchTopRatedMoviesUseCase
     
-    @Published var popularMovies: [Movie] = []
-    @Published var topRatedMovies: [Movie] = []
+    @Published var popularMovies: [Movie] = RedactionHelper.movies
+    @Published var topRatedMovies: [Movie] = RedactionHelper.movies
+    
+    @Published var isLoading: Bool = false
     
     init(
         client: NetworkClient,
@@ -54,6 +56,7 @@ class HomeViewModel: ObservableObject {
     }
     
     func fetchHomeMovies(){
+        setLoading()
         let task = Task{
             await withTaskGroup(of: Void.self) { group in
                 group.addTask {
@@ -62,6 +65,9 @@ class HomeViewModel: ObservableObject {
                 group.addTask {
                     await self.fetchTopRatedMovies()
                 }
+            }
+            await MainActor.run {
+                resetLoading()
             }
         }
         tasks.append(task)

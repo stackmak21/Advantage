@@ -10,6 +10,7 @@ import Foundation
 struct MoviesRepositoryMock: MoviesRepositoryContract{
     
     func fetchPopularMovies() async -> Result<[Movie], MovieDBError>{
+        try? await Task.sleep(seconds: 2)
         return .success(DeveloperPreview.popularMovies)
     }
     

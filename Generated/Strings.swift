@@ -10,11 +10,19 @@ import Foundation
 // swiftlint:disable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:disable nesting type_body_length type_name vertical_whitespace_opening_braces
 internal enum Strings {
+  /// Advantage Fintech
+  internal static let advanceFintech = Strings.tr("Localizable", "advance_fintech", fallback: "Advantage Fintech")
+  /// Cast
+  internal static let cast = Strings.tr("Localizable", "cast", fallback: "Cast")
   /// Localizable.strings
   ///   Advantage
   /// 
   ///   Created by Paris Makris on 25/4/25.
-  internal static let hello = Strings.tr("Localizable", "hello", fallback: "Hello World")
+  internal static let hello = Strings.tr("Localizable", "hello", fallback: "Hello 🖐️")
+  /// Popular
+  internal static let popular = Strings.tr("Localizable", "popular", fallback: "Popular")
+  /// Top Rated
+  internal static let topRated = Strings.tr("Localizable", "top_rated", fallback: "Top Rated")
 }
 // swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:enable nesting type_body_length type_name vertical_whitespace_opening_braces

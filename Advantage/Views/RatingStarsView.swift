@@ -22,7 +22,7 @@ struct RatingStarsView: View {
         GeometryReader{ proxy in
             ZStack(alignment: .leading){
                 Rectangle()
-                    .foregroundColor(Color.yellow)
+                    .foregroundColor(Color.customLightYellow)
                     .frame(width: calculateRating() / 5 * proxy.size.width)
             }
         }
@@ -34,7 +34,7 @@ struct RatingStarsView: View {
                 Image(systemName: "star.fill")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-                    .foregroundColor(Color.gray)
+                    .foregroundColor(Color.customLightGray)
             }
         }
     }

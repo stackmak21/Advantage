@@ -39,9 +39,17 @@ struct MovieDetailsHeader: View {
                                 .foregroundColor(Color.customLightYellow)
                         }
                     }
-                    Text(movieDetails.releaseDate.formatDate(to: "YYYY"))
-                        .font(Typography.regular(size: 18))
-                        .foregroundColor(Color.customLightGray)
+                    HStack{
+                        Text(movieDetails.releaseDate.formatDate(to: "YYYY"))
+                            .font(Typography.regular(size: 18))
+                            .foregroundColor(Color.customLightGray)
+                        Image(systemName: "circle.fill")
+                            .font(Typography.regular(size: 6))
+                            .foregroundColor(Color.customLightGray)
+                        Text(movieDetails.runtime.asHourMinutesString())
+                            .font(Typography.regular(size: 18))
+                            .foregroundColor(Color.customLightGray)
+                    }
                     HStack{
                         ForEach(movieDetails.genres, id: \.id){ genre in
                             GenreTagView(genre: genre.name)
