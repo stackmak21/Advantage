@@ -37,10 +37,15 @@ struct HomeScreen: View {
                                 .frame(maxWidth: .infinity, alignment: .leading)
                             }
                         }
-                        SearchBar(
-                            onSearchClicked: {
-                                
-                        })
+                        NavigationLink(
+                            destination: {
+                                MoviesSearchScreen(client: NetworkClient())
+                            },
+                            label: {
+                                SearchIcon()
+                            }
+                        )
+                        
                     }
                     .padding()
                     
@@ -54,9 +59,17 @@ struct HomeScreen: View {
                         ScrollView(.horizontal, showsIndicators: false) {
                             LazyHStack(spacing: 20){
                                 ForEach(viewModel.popularMovies, id: \.id) { movie in
-                                    PopularMovieThumbnailView(movie: movie)
-                                        .shadow(color: .black.opacity(0.3), radius: 6, x: 1, y: 2)
-                                        .frame(width: 160, height: 260)
+                                    NavigationLink(
+                                        destination: {
+                                            MovieDetailsScreen(client: NetworkClient(), movieId: movie.id)
+                                        },
+                                        label: {
+                                            PopularMovieThumbnailView(movie: movie)
+                                                .shadow(color: .black.opacity(0.3), radius: 6, x: 1, y: 2)
+                                                .frame(width: 160, height: 260)
+                                        }
+                                    )
+                                    
                                     
                                 }
                                 .padding(.vertical, 10)

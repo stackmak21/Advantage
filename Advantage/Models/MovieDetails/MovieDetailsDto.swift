@@ -81,29 +81,6 @@ struct MovieDetailsDto: Codable {
     
 }
 
-struct MovieDetails{
-    let id: Int
-    let adult: Bool
-    let backdropPath: String
-    let budget: Int
-    let genres: [Genre]
-    let homepage: String
-    let imdbID: String
-    let originCountry: [String]
-    let originalLanguage, originalTitle, overview: String
-    let popularity: Double
-    let posterPath: String
-    let productionCompanies: [ProductionCompany]
-    let productionCountries: [ProductionCountry]
-    let releaseDate: String
-    let revenue, runtime: Int
-    let spokenLanguages: [SpokenLanguage]
-    let status, tagline, title: String
-    let video: Bool
-    let voteAverage: Double
-    let voteCount: Int
-}
-
 // MARK: - Genre
 struct GenreDto: Codable {
     let id: Int?

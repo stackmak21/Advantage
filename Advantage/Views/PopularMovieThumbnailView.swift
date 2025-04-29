@@ -14,7 +14,7 @@ struct PopularMovieThumbnailView: View {
     var body: some View {
         ZStack{
             VStack{
-                ImageLoader(url: "https://image.tmdb.org/t/p/w500" + movie.posterPath)
+                ImageLoader(url: "https://image.tmdb.org/t/p/w200" + movie.posterPath)
                     .clipShape(RoundedRectangle(cornerRadius: 10))
                     .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
                 VStack{

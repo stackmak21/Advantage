@@ -25,8 +25,16 @@ struct ContentView: View {
 }
 
 struct TestView: View {
+    @Environment(\.dismiss) private var dismiss
+    
     var body: some View {
-        Text("New Screen")
+        VStack{
+            Text("New Screen")
+                .onTapGesture {
+                    dismiss()
+                }
+        }
+            .navigationBarHidden(true)
     }
 }
 

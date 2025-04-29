@@ -35,7 +35,7 @@ struct MovieDto: Codable {
         case voteCount = "vote_count"
     }
     
-    func toPopularItem() -> Movie{
+    func toMovie() -> Movie{
         return Movie(
             id: self.id ?? 0,
             adult: self.adult ?? false,

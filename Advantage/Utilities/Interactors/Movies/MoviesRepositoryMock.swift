@@ -16,4 +16,16 @@ struct MoviesRepositoryMock: MoviesRepositoryContract{
     func fetchTopRatedMovies() async -> Result<[Movie], MovieDBError>{
         return .success(DeveloperPreview.popularMovies)
     }
+    
+    func searchByName(movieName: String) async -> Result<[Movie], MovieDBError>{
+        return .success(DeveloperPreview.popularMovies)
+    }
+    
+    func fetchMovieDetails(movieId: Int) async -> Result<MovieDetails, MovieDBError> {
+        return .success(DeveloperPreview.movieDetails)
+    }
+    
+    func fetchCastMembers(movieId: Int) async -> Result<[CastMember], MovieDBError>{
+        return .success(DeveloperPreview.castMembers)
+    }
 }
