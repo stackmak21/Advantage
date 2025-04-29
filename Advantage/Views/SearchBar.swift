@@ -9,15 +9,13 @@ import SwiftUI
 
 struct SearchBar: View {
     
-    @State var isFocused: Bool = false
+    let onSearchClicked: () -> Void
+    
     var body: some View {
         HStack{
-            if !isFocused{
-                Spacer()
-            }
             Button(
                 action: {
-                    isFocused.toggle()
+                    onSearchClicked()
                 },
                 label: {
                     Image(systemName: "magnifyingglass")
@@ -25,7 +23,6 @@ struct SearchBar: View {
                         .aspectRatio(contentMode: .fit)
                         .foregroundColor(Color.black.opacity(0.8))
                         .frame(width: 20)
-                        .frame(maxWidth: isFocused ? .infinity : nil, alignment: .leading)
                         .padding()
                         .background(.white)
                         .clipShape(RoundedRectangle(cornerRadius: 12))
@@ -35,11 +32,10 @@ struct SearchBar: View {
             )
             .buttonStyle(PlainButtonStyle())
         }
-        .animation(.easeInOut, value: isFocused)
     }
 }
 
 #Preview {
-    SearchBar()
+    SearchBar(onSearchClicked: {})
         .padding()
 }

@@ -61,6 +61,9 @@
 		F9C315132DC017E70034CA06 /* FetchTopRatedMoviesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C315122DC017E70034CA06 /* FetchTopRatedMoviesUseCase.swift */; };
 		F9C315172DC022C70034CA06 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C315162DC022C70034CA06 /* StringExtensions.swift */; };
 		F9C315192DC025810034CA06 /* DoubleExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C315182DC025810034CA06 /* DoubleExtensions.swift */; };
+		F9C3151B2DC0318C0034CA06 /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C3151A2DC0318C0034CA06 /* SearchBarView.swift */; };
+		F9C3151D2DC0B6F40034CA06 /* TaskExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C3151C2DC0B6F40034CA06 /* TaskExtensions.swift */; };
+		F9C3151F2DC0B7770034CA06 /* Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C3151E2DC0B7770034CA06 /* Keyboard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -120,6 +123,9 @@
 		F9C315122DC017E70034CA06 /* FetchTopRatedMoviesUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchTopRatedMoviesUseCase.swift; sourceTree = "<group>"; };
 		F9C315162DC022C70034CA06 /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		F9C315182DC025810034CA06 /* DoubleExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleExtensions.swift; sourceTree = "<group>"; };
+		F9C3151A2DC0318C0034CA06 /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
+		F9C3151C2DC0B6F40034CA06 /* TaskExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskExtensions.swift; sourceTree = "<group>"; };
+		F9C3151E2DC0B7770034CA06 /* Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keyboard.swift; sourceTree = "<group>"; };
 		FF048CB2424435A7FE2736D6 /* Pods-Advantage.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Advantage.debug.xcconfig"; path = "Target Support Files/Pods-Advantage/Pods-Advantage.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -302,6 +308,8 @@
 				F9C314EF2DBC4EC50034CA06 /* DeveloperPreview.swift */,
 				F9C315162DC022C70034CA06 /* StringExtensions.swift */,
 				F9C315182DC025810034CA06 /* DoubleExtensions.swift */,
+				F9C3151C2DC0B6F40034CA06 /* TaskExtensions.swift */,
+				F9C3151E2DC0B7770034CA06 /* Keyboard.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -387,6 +395,7 @@
 				F9C315042DBFC1120034CA06 /* SearchBar.swift */,
 				F9C3150C2DBFD04B0034CA06 /* PopularMovieThumbnailView.swift */,
 				F9C3150E2DBFD61E0034CA06 /* RatingStarsView.swift */,
+				F9C3151A2DC0318C0034CA06 /* SearchBarView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -544,9 +553,11 @@
 				F9C314AD2DBBF1430034CA06 /* Typography.swift in Sources */,
 				F9C314FE2DBFAC090034CA06 /* MoviesDto.swift in Sources */,
 				F9C314E82DBC4BDC0034CA06 /* MoviesRepository.swift in Sources */,
+				F9C3151B2DC0318C0034CA06 /* SearchBarView.swift in Sources */,
 				F9C314EA2DBC4BE60034CA06 /* MoviesApi.swift in Sources */,
 				F9C314B82DBBF86B0034CA06 /* HttpMethod.swift in Sources */,
 				F9C315172DC022C70034CA06 /* StringExtensions.swift in Sources */,
+				F9C3151D2DC0B6F40034CA06 /* TaskExtensions.swift in Sources */,
 				F9C314C82DBC14130034CA06 /* MovieDBError.swift in Sources */,
 				F9C314CB2DBC15690034CA06 /* Logger.swift in Sources */,
 				F9C314822DBBE1500034CA06 /* Fonts.swift in Sources */,
@@ -560,6 +571,7 @@
 				F9C3149C2DBBF0EB0034CA06 /* AdvantageApp.swift in Sources */,
 				F9C315022DBFB5DC0034CA06 /* AppConstants.swift in Sources */,
 				F9C314F42DBCAE5B0034CA06 /* MovieDto.swift in Sources */,
+				F9C3151F2DC0B7770034CA06 /* Keyboard.swift in Sources */,
 				F9C314AF2DBBF2540034CA06 /* FontConvertibleExtension.swift in Sources */,
 				F9C314F62DBCB6920034CA06 /* MovieDetailsDto.swift in Sources */,
 				F9C314DE2DBC42B10034CA06 /* MoviesSearchScreen.swift in Sources */,

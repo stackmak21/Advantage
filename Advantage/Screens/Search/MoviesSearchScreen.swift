@@ -16,7 +16,11 @@ struct MoviesSearchScreen: View {
     }
     
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack{
+            SearchBarView(searchText: $viewModel.searchText, onDebounceSearch: { print(viewModel.searchText) })
+            Spacer()
+            
+        }
     }
 }
 

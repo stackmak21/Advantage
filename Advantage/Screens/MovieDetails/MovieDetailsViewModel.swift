@@ -13,10 +13,13 @@ class MovieDetailsViewModel: ObservableObject {
     private var tasks: [Task<Void, Never>] = []
     private let client: NetworkClient
     
+    @Published var searchText: String = ""
+    
     init(
         client: NetworkClient
     ) {
         self.client = client
     }
+    
     
 }

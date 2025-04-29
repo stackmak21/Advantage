@@ -11,6 +11,10 @@ struct HomeScreen: View {
     
     @StateObject var viewModel: HomeViewModel
     
+    @State var isSearchFocused: Bool = false
+    @Namespace var searchBarNamepace
+    @State var searchText: String = ""
+    
     init(client: NetworkClient, moviesRepositoryMock: MoviesRepositoryMock? = nil) {
         self._viewModel = StateObject(wrappedValue: HomeViewModel(client: client, moviesRepositoryMock: moviesRepositoryMock))
     }
@@ -20,50 +24,56 @@ struct HomeScreen: View {
             ScrollView(.vertical, showsIndicators: false) {
                 VStack{
                     HStack{
-                        VStack{
-                            Group{
-                                Text("Hello 🖐️")
-                                    .font(Typography.regular(size: 16))
-                                    .foregroundColor(Color.black)
-                                Text("Paris Makris")
-                                    .font(Typography.bold(size: 18))
-                                    .foregroundColor(Color.black)
+                        if !isSearchFocused{
+                            VStack{
+                                Group{
+                                    Text("Hello 🖐️")
+                                        .font(Typography.regular(size: 16))
+                                        .foregroundColor(Color.black)
+                                    Text("Advantage Fintech")
+                                        .font(Typography.bold(size: 18))
+                                        .foregroundColor(Color.black)
+                                }
+                                .frame(maxWidth: .infinity, alignment: .leading)
                             }
-                            .frame(maxWidth: .infinity, alignment: .leading)
                         }
-                        SearchBar()
+                        SearchBar(
+                            onSearchClicked: {
+                                
+                        })
                     }
                     .padding()
                     
-                    Text("Popular")
-                        .font(Typography.medium(size: 18))
-                        .foregroundColor(Color.black)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .padding(.horizontal)
-                    
-                    ScrollView(.horizontal, showsIndicators: false) {
-                        LazyHStack(spacing: 20){
-                            ForEach(viewModel.popularMovies, id: \.id) { movie in
-                                PopularMovieThumbnailView(movie: movie)
-                                    .shadow(color: .black.opacity(0.3), radius: 6, x: 1, y: 2)
-                                    .frame(width: 160, height: 260)
-                                
+                    if !isSearchFocused{
+                        Text("Popular")
+                            .font(Typography.medium(size: 18))
+                            .foregroundColor(Color.black)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .padding(.horizontal)
+                        
+                        ScrollView(.horizontal, showsIndicators: false) {
+                            LazyHStack(spacing: 20){
+                                ForEach(viewModel.popularMovies, id: \.id) { movie in
+                                    PopularMovieThumbnailView(movie: movie)
+                                        .shadow(color: .black.opacity(0.3), radius: 6, x: 1, y: 2)
+                                        .frame(width: 160, height: 260)
+                                    
+                                }
+                                .padding(.vertical, 10)
                             }
-                            .padding(.vertical, 10)
+                            .padding(.horizontal)
                         }
-                        .padding(.horizontal)
-                    }
-                    .frame(height: 280)
-                    
-                    Text("Top Rated")
-                        .font(Typography.medium(size: 18))
-                        .foregroundColor(Color.black)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .padding(.horizontal)
-                    
-                    
-                    VStack(spacing: 20){
-                        ForEach(viewModel.topRatedMovies, id: \.id) { movie in
+                        .frame(height: 280)
+                        
+                        Text("Top Rated")
+                            .font(Typography.medium(size: 18))
+                            .foregroundColor(Color.black)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .padding(.horizontal)
+                        
+                        
+                        VStack(spacing: 20){
+                            ForEach(viewModel.topRatedMovies, id: \.id) { movie in
                                 HStack{
                                     ImageLoader(url: "https://image.tmdb.org/t/p/w500" + movie.posterPath)
                                         .frame(width: 80, height: 100)
@@ -110,19 +120,19 @@ struct HomeScreen: View {
                                     )
                                     .buttonStyle(PlainButtonStyle())
                                     .padding(.leading)
+                                }
                             }
                         }
+                        .padding(.horizontal)
                     }
-                    .padding(.horizontal)
-                    
-                    
-                    
                 }
             }
+            
         }
         .onAppear{
             viewModel.fetchHomeMovies()
         }
+        .animation(.easeInOut, value: isSearchFocused)
         
         
     }
