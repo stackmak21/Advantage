@@ -16,6 +16,7 @@ struct MovieDto: Codable {
     let originalLanguage, originalTitle, overview: String?
     let popularity: Double?
     let posterPath, releaseDate, title: String?
+    let mediaType: MediaType?
     let video: Bool?
     let voteAverage: Double?
     let voteCount: Int?
@@ -31,6 +32,7 @@ struct MovieDto: Codable {
         case posterPath = "poster_path"
         case releaseDate = "release_date"
         case title, video
+        case mediaType = "media_type"
         case voteAverage = "vote_average"
         case voteCount = "vote_count"
     }
@@ -48,6 +50,7 @@ struct MovieDto: Codable {
             posterPath: self.posterPath ?? "",
             releaseDate: self.releaseDate ?? "",
             title: self.title ?? "",
+            mediaType: self.mediaType ?? MediaType.tv,
             video: self.video ?? false,
             voteAverage: self.voteAverage ?? 0,
             voteCount: self.voteCount ?? 0

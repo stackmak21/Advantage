@@ -34,11 +34,13 @@ struct HomeScreen: View {
                         ScrollView(.horizontal, showsIndicators: false) {
                             LazyHStack(spacing: 20){
                                 ForEach(viewModel.popularMovies, id: \.id) { movie in
-                                    PopularMovieThumbnailView(
-                                        movie: movie,
-                                        onClick: { viewModel.navigateToMovieDetailsScreen(movieId: movie.id) }
-                                    )
+                                    if movie.isValid{
+                                        PopularMovieThumbnailView(
+                                            movie: movie,
+                                            onClick: { viewModel.navigateToMovieDetailsScreen(movieId: movie.id) }
+                                        )
                                         .frame(width: 160, height: 280)
+                                    }
                                 }
                                 .padding(.bottom, 20)
                                 .padding(.top, 10)
@@ -55,7 +57,9 @@ struct HomeScreen: View {
                         
                         VStack(spacing: 20){
                             ForEach(viewModel.topRatedMovies, id: \.id) { movie in
-                                MoviePreviewCellCiew(movie: movie, onClick: { viewModel.navigateToMovieDetailsScreen(movieId: movie.id) })
+                                if movie.isValid{
+                                    MoviePreviewCellCiew(movie: movie, onClick: { viewModel.navigateToMovieDetailsScreen(movieId: movie.id) })
+                                }
                             }
                         }
                         .padding(.horizontal)

@@ -100,4 +100,8 @@ extension HomeViewModel{
             MovieDetailsScreen(client: self.client, movieId: movieId, router: self.router)
         }
     }
+    
+    func dismissScreen(){
+        router.dismissScreen()
+    }
 }

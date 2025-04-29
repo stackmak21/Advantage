@@ -47,8 +47,7 @@ struct ImageLoader: View {
 
 #Preview {
     ImageLoader(
-        url: "https://picsum.photos/800/1003",
-        width: 200,
-        height: 200
+        url: "https://picsum.photos/800/1009"
     )
+    .frame(width: 200, height: 200)
 }

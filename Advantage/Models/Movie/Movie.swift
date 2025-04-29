@@ -15,7 +15,18 @@ struct Movie: Identifiable, Equatable {
     let originalLanguage, originalTitle, overview: String
     let popularity: Double
     let posterPath, releaseDate, title: String
+    let mediaType: MediaType
     let video: Bool
     let voteAverage: Double
     let voteCount: Int
+    
+    var isValid: Bool {
+        !backdropPath.isEmpty &&
+        !overview.isEmpty &&
+        !posterPath.isEmpty &&
+        !releaseDate.isEmpty &&
+        !title.isEmpty &&
+        voteAverage > 0 &&
+        voteCount > 0 
+    }
 }

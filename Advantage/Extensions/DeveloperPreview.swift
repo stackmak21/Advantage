@@ -21,6 +21,7 @@ struct DeveloperPreview{
         posterPath: "/xUkUZ8eOnrOnnJAfusZUqKYZiDu.jpg",
         releaseDate: "2025-03-26",
         title: "A Working Man",
+        mediaType: .movie,
         video: false,
         voteAverage: 6.307,
         voteCount: 429
@@ -102,6 +103,7 @@ struct DeveloperPreview{
             posterPath: "/xUkUZ8eOnrOnnJAfusZUqKYZiDu.jpg",
             releaseDate: "2025-03-26",
             title: "A Working Man",
+            mediaType: .movie,
             video: false,
             voteAverage: 6.307,
             voteCount: 429

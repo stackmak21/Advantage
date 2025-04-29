@@ -23,6 +23,7 @@ struct MoviesRepositoryMock: MoviesRepositoryContract{
     }
     
     func fetchMovieDetails(movieId: Int) async -> Result<MovieDetails, MovieDBError> {
+        try? await Task.sleep(seconds: 2)
         return .success(DeveloperPreview.movieDetails)
     }
     

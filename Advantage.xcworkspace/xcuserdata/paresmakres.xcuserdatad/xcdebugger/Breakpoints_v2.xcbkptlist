@@ -168,7 +168,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "1B69EFA3-E6FA-44CE-89BE-7BF268F28005"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Advantage/Networking/NetworkClient.swift"
@@ -178,50 +178,6 @@
             endingLineNumber = "51"
             landmarkName = "execute(host:endpoint:authToken:queryItems:urlScheme:urlPort:httpMethod:headers:timeInterval:requestBody:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "1B69EFA3-E6FA-44CE-89BE-7BF268F28005 - 72d956e902ee7d5f"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(1) suspend resume partial function for Advantage.NetworkClient.execute&lt;&#x3c4;_0_0, &#x3c4;_0_1 where &#x3c4;_0_0: Swift.Decodable, &#x3c4;_0_0: Swift.Encodable, &#x3c4;_0_1: Swift.Decodable, &#x3c4;_0_1: Swift.Encodable, &#x3c4;_0_1: Swift.Error&gt;(host: Swift.String, endpoint: Swift.String, authToken: Swift.String, queryItems: Swift.Dictionary&lt;Swift.String, Swift.String&gt;, urlScheme: Advantage.URLScheme, urlPort: Swift.Optional&lt;Swift.Int&gt;, httpMethod: Advantage.HttpMethod, headers: Swift.Dictionary&lt;Swift.String, Swift.String&gt;, timeInterval: Swift.Double, requestBody: Swift.Optional&lt;Foundation.Data&gt;) async -&gt; Swift.Result&lt;Swift.Optional&lt;&#x3c4;_0_0&gt;, &#x3c4;_0_1&gt;"
-                  moduleName = "Advantage.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/paresmakres/Documents/GitHub/Advantage/Advantage/Networking/NetworkClient.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "51"
-                  endingLineNumber = "51">
-               </Location>
-               <Location
-                  uuid = "1B69EFA3-E6FA-44CE-89BE-7BF268F28005 - 546f15f604b4f143"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(5) suspend resume partial function for Advantage.NetworkClient.execute&lt;&#x3c4;_0_0, &#x3c4;_0_1 where &#x3c4;_0_0: Swift.Decodable, &#x3c4;_0_0: Swift.Encodable, &#x3c4;_0_1: Swift.Decodable, &#x3c4;_0_1: Swift.Encodable, &#x3c4;_0_1: Swift.Error&gt;(host: Swift.String, endpoint: Swift.String, authToken: Swift.String, queryItems: Swift.Dictionary&lt;Swift.String, Swift.String&gt;, urlScheme: Advantage.URLScheme, urlPort: Swift.Optional&lt;Swift.Int&gt;, httpMethod: Advantage.HttpMethod, headers: Swift.Dictionary&lt;Swift.String, Swift.String&gt;, timeInterval: Swift.Double, requestBody: Swift.Optional&lt;Foundation.Data&gt;) async -&gt; Swift.Result&lt;Swift.Optional&lt;&#x3c4;_0_0&gt;, &#x3c4;_0_1&gt;"
-                  moduleName = "Advantage.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/paresmakres/Documents/GitHub/Advantage/Advantage/Networking/NetworkClient.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "51"
-                  endingLineNumber = "51">
-               </Location>
-               <Location
-                  uuid = "1B69EFA3-E6FA-44CE-89BE-7BF268F28005 - 6f0da5b744275044"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(6) suspend resume partial function for Advantage.NetworkClient.execute&lt;&#x3c4;_0_0, &#x3c4;_0_1 where &#x3c4;_0_0: Swift.Decodable, &#x3c4;_0_0: Swift.Encodable, &#x3c4;_0_1: Swift.Decodable, &#x3c4;_0_1: Swift.Encodable, &#x3c4;_0_1: Swift.Error&gt;(host: Swift.String, endpoint: Swift.String, authToken: Swift.String, queryItems: Swift.Dictionary&lt;Swift.String, Swift.String&gt;, urlScheme: Advantage.URLScheme, urlPort: Swift.Optional&lt;Swift.Int&gt;, httpMethod: Advantage.HttpMethod, headers: Swift.Dictionary&lt;Swift.String, Swift.String&gt;, timeInterval: Swift.Double, requestBody: Swift.Optional&lt;Foundation.Data&gt;) async -&gt; Swift.Result&lt;Swift.Optional&lt;&#x3c4;_0_0&gt;, &#x3c4;_0_1&gt;"
-                  moduleName = "Advantage.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/paresmakres/Documents/GitHub/Advantage/Advantage/Networking/NetworkClient.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "51"
-                  endingLineNumber = "51">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

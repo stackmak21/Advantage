@@ -38,6 +38,7 @@ class MoviesSearchViewModel: BaseViewModel{
     
     
     func fetchRequestedMovies() {
+        setLoading()
         let task = Task{
             let response = await searchByNameUseCase.invoke(movieName: searchText)
             switch response {
@@ -46,7 +47,23 @@ class MoviesSearchViewModel: BaseViewModel{
             case .failure(let error):
                 Logger.error(error.statusMessage, showCurrentThread: true)
             }
+            resetLoading()
         }
         tasks.append(task)
+    }
+}
+
+//MARK: - Navigation
+
+extension MoviesSearchViewModel{
+    
+    func dismissScreen(){
+        router.dismissScreen()
+    }
+    
+    func navigateToMovieDetailsScreen(movieId: Int){
+        router.showScreen(.push) { router in
+            MovieDetailsScreen(client: self.client, movieId: movieId, router: self.router)
+        }
     }
 }

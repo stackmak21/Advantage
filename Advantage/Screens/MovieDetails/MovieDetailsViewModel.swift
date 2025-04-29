@@ -20,8 +20,8 @@ class MovieDetailsViewModel: BaseViewModel {
     
     private let movieId: Int
     
-    @Published var movieDetails: MovieDetails = MovieDetails()
-    @Published var castMembers: [CastMember] = []
+    @Published var movieDetails: MovieDetails = RedactionHelper.movieDetails
+    @Published var castMembers: [CastMember] = RedactionHelper.castMembers
     
     @Published var isLoading: Bool = false
     
@@ -43,6 +43,7 @@ class MovieDetailsViewModel: BaseViewModel {
     }
     
     func fetchMovieDetails(){
+        setLoading()
         let task = Task{
             await withTaskGroup(of: Void.self) { group in
                 group.addTask {
@@ -51,6 +52,10 @@ class MovieDetailsViewModel: BaseViewModel {
                 group.addTask {
                     await self.fetchCastMembers()
                 }
+            }
+            
+            await MainActor.run {
+                resetLoading()
             }
         }
         tasks.append(task)
@@ -74,5 +79,13 @@ class MovieDetailsViewModel: BaseViewModel {
             case .failure(let error):
                 Logger.error(error.statusMessage, showCurrentThread: true)
             }
+    }
+}
+
+
+//MARK: - Navigation
+extension MovieDetailsViewModel{
+    func dismissScreen(){
+        router.dismissScreen()
     }
 }

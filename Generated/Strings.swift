@@ -12,6 +12,8 @@ import Foundation
 internal enum Strings {
   /// Advantage Fintech
   internal static let advanceFintech = Strings.tr("Localizable", "advance_fintech", fallback: "Advantage Fintech")
+  /// All Movies
+  internal static let allMovies = Strings.tr("Localizable", "all_movies", fallback: "All Movies")
   /// Cast
   internal static let cast = Strings.tr("Localizable", "cast", fallback: "Cast")
   /// Localizable.strings
@@ -21,6 +23,8 @@ internal enum Strings {
   internal static let hello = Strings.tr("Localizable", "hello", fallback: "Hello 🖐️")
   /// Popular
   internal static let popular = Strings.tr("Localizable", "popular", fallback: "Popular")
+  /// Search for movies
+  internal static let searchMovies = Strings.tr("Localizable", "search_movies", fallback: "Search for movies")
   /// Top Rated
   internal static let topRated = Strings.tr("Localizable", "top_rated", fallback: "Top Rated")
 }

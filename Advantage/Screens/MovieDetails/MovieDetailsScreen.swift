@@ -10,7 +10,7 @@ import SwiftfulRouting
 
 struct MovieDetailsScreen: View {
     
-    @Environment(\.dismiss) private var dismiss
+    @Environment(\.dismiss) var dismiss
     
     @StateObject var viewModel: MovieDetailsViewModel
     
@@ -53,12 +53,12 @@ struct MovieDetailsScreen: View {
 
                                         Text(member.character)
                                             .font(Typography.medium(size: 12))
-                                            .lineLimit(1)
-                                            .truncationMode(.tail)
+                                            .lineLimit(2)
+                                            .multilineTextAlignment(.leading)
                                             .foregroundColor(Color.customWhite.opacity(0.6))
                                             .frame(maxWidth: .infinity, alignment: .leading)
                                     }
-                                    .frame(width: 100, height: 200, alignment: .top)
+                                    .frame(width: 100, height: 210, alignment: .top)
                                 }
                             }
                             .padding(.bottom, 10)
@@ -68,8 +68,11 @@ struct MovieDetailsScreen: View {
                     
                 }
                 .overlay(alignment: .topLeading) {
-                    BackButtonView(onBackClicked: { dismiss() })
-                        .padding(.horizontal)
+                    BackButtonView(onBackClicked: {
+                        dismiss()
+                    })
+                    .unredacted()
+                    .padding(.horizontal)
                 }
                
                 Spacer()
@@ -77,6 +80,7 @@ struct MovieDetailsScreen: View {
             .ignoresSafeArea(.all, edges: [.bottom])
             
         }
+        .redacted(reason: viewModel.isLoading ? .placeholder : [])
         .onAppear {
             viewModel.fetchMovieDetails()
         }

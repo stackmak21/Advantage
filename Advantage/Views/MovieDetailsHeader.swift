@@ -16,14 +16,14 @@ struct MovieDetailsHeader: View {
     
     var body: some View {
         Rectangle()
-            .opacity(0)
+            .opacity(1)
             .overlay(
                 ImageLoader(url: "https://image.tmdb.org/t/p/original" + movieDetails.backdropPath)
             )
             .overlay(
                 VStack(alignment: .leading, spacing: 8) {
                     HStack{
-                        Text(movieDetails.originalTitle)
+                        Text(movieDetails.title)
                             .font(Typography.bold(size: 26))
                             .foregroundColor(Color.customWhite)
                         Spacer()
@@ -51,8 +51,10 @@ struct MovieDetailsHeader: View {
                             .foregroundColor(Color.customLightGray)
                     }
                     HStack{
-                        ForEach(movieDetails.genres, id: \.id){ genre in
-                            GenreTagView(genre: genre.name)
+                        ForEach(Array(zip(movieDetails.genres.indices, movieDetails.genres)), id: \.0){ index, genre in
+                            if index < 3 {
+                                GenreTagView(genre: genre.name)
+                            }
                         }
                     }
                     .frame(maxWidth: .infinity, alignment: .leading)

@@ -11,7 +11,8 @@ import SwiftUI
 
 struct SearchBarView: View {
     
-    @Binding var searchText: String 
+    @Binding var searchText: String
+    @FocusState var isFocused: Bool
     let onDebounceSearch: () -> Void
     
     @State var task: Task<Void, Never>? = nil
@@ -24,7 +25,7 @@ struct SearchBarView: View {
                     Color.black : Color.black.opacity(0.8)
                 )
             
-            TextField("Search", text: $searchText)
+            TextField(Strings.searchMovies, text: $searchText)
                 .foregroundColor(Color.black)
                 .disableAutocorrection(true)
                 .overlay(
@@ -39,14 +40,16 @@ struct SearchBarView: View {
                         }
                     ,alignment: .trailing
                 )
+                .focused($isFocused)
                 .accentColor(Color.black)
+                
         }
         .font(Typography.regular(size: 16))
         .padding()
         .background(
             RoundedRectangle(cornerRadius: 12)
                 .fill(Color.customWhite)
-                .shadow(color: .black.opacity(0.1), radius: 4, x: 0, y: 2)
+                .shadow(color: .customBlack.opacity(isFocused ? 0.30 : 0.15), radius: 4, x: 0, y: 2)
             
         )
         .padding()
