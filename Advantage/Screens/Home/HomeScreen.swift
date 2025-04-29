@@ -39,7 +39,10 @@ struct HomeScreen: View {
                                         if movie.isValid{
                                             PopularMovieThumbnailView(
                                                 movie: movie,
-                                                onClick: { viewModel.navigateToMovieDetailsScreen(movieId: movie.id) }
+                                                onClick: {
+                                                    viewModel.hitDebounce()
+                                                    viewModel.navigateToMovieDetailsScreen(movieId: movie.id)
+                                                }
                                             )
                                             .id(index)
                                             .frame(width: 160, height: 280)
@@ -66,7 +69,10 @@ struct HomeScreen: View {
                         VStack(spacing: 20){
                             ForEach(viewModel.topRatedMovies, id: \.id) { movie in
                                 if movie.isValid{
-                                    MoviePreviewCellCiew(movie: movie, onClick: { viewModel.navigateToMovieDetailsScreen(movieId: movie.id) })
+                                    MoviePreviewCellCiew(movie: movie, onClick: {
+                                        viewModel.hitDebounce()
+                                        viewModel.navigateToMovieDetailsScreen(movieId: movie.id)
+                                    })
                                 }
                             }
                         }
@@ -89,6 +95,7 @@ struct HomeScreen: View {
                 }
             }
         }
+        .allowsHitTesting(viewModel.isHitAllowed)
         .redacted(reason: viewModel.isLoading && viewModel.isReloadAllowed() ? .placeholder : [])
     }
     
@@ -107,6 +114,7 @@ struct HomeScreen: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
             }
             SearchIcon(onClick: {
+                viewModel.hitDebounce()
                 viewModel.navigateToSearchScreen()
             })
             .unredacted()

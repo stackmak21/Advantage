@@ -16,6 +16,7 @@ struct MovieDetailsHeader: View {
     
     var body: some View {
         Rectangle()
+            .fill(Color.customDarkGray)
             .opacity(1)
             .overlay(
                 ImageLoader(url: "https://image.tmdb.org/t/p/original" + movieDetails.backdropPath)

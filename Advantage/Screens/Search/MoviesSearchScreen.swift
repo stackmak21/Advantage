@@ -20,27 +20,41 @@ struct MoviesSearchScreen: View {
     
     var body: some View {
         ZStack{
-            Color.customWhite
+            Color.customWhite.ignoresSafeArea()
             VStack(spacing: 0){
                 SearchBarView(
                     searchText: $viewModel.searchText,
                     onDebounceSearch: {
                         viewModel.fetchRequestedMovies()
-                    })
-                ScrollView(.vertical) {
-                    VStack(spacing: 20){
-                        ForEach(viewModel.searchedMovies, id: \.id) { movie in
-                            if movie.mediaType == .movie && movie.isValid {
-                                MoviePreviewCellCiew(
-                                    movie: movie,
-                                    onClick: {
-                                        viewModel.navigateToMovieDetailsScreen(movieId: movie.id)
+                    },
+                    onClearClicked: { viewModel.fetchPopularMovies() }
+                )
+                .padding(.top)
+                .padding(.bottom, 6)
+                
+                if viewModel.searchedMovies.isEmpty{
+                    EmptyContent()
+                        .padding(.top, 100)
+                    Spacer()
+                }
+                else{
+                    ScrollViewReader{ scrollProxy in
+                        ScrollView(.vertical) {
+                            VStack(spacing: 20){
+                                ForEach(viewModel.searchedMovies, id: \.id) { movie in
+                                    if movie.mediaType == .movie && movie.isValid {
+                                        MoviePreviewCellCiew(
+                                            movie: movie,
+                                            onClick: {
+                                                viewModel.navigateToMovieDetailsScreen(movieId: movie.id)
+                                            }
+                                        )
                                     }
-                                )
+                                }
                             }
+                            .padding()
                         }
                     }
-                    .padding(.horizontal)
                 }
                 
             }

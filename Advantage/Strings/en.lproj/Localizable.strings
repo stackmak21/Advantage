@@ -13,3 +13,5 @@
 "cast" = "Cast";
 "search_movies" = "Search for movies";
 "all_movies" = "All Movies";
+"no_movies" = "No Movies Found";
+"empty_content_message" = "Try searching with a different keyword or check your connection.";

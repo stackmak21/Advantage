@@ -14,6 +14,7 @@ struct SearchBarView: View {
     @Binding var searchText: String
     @FocusState var isFocused: Bool
     let onDebounceSearch: () -> Void
+    let onClearClicked: () -> Void
     
     @State var task: Task<Void, Never>? = nil
     
@@ -22,26 +23,32 @@ struct SearchBarView: View {
             Image(systemName: "magnifyingglass")
                 .foregroundColor(
                     searchText.isEmpty ?
-                    Color.black : Color.black.opacity(0.8)
+                    Color.customBlack : Color.customBlack.opacity(0.8)
                 )
             
-            TextField(Strings.searchMovies, text: $searchText)
-                .foregroundColor(Color.black)
+            TextField("", text: $searchText)
+                .placeholder(when: searchText.isEmpty, placeholder: {
+                    Text(Strings.searchMovies)
+                        .font(Typography.regular(size: 16))
+                        .foregroundColor(Color.customLightGray)
+                })
+                .foregroundColor(Color.customBlack)
                 .disableAutocorrection(true)
                 .overlay(
                     Image(systemName: "xmark.circle.fill")
                         .padding()
                         .offset(x: 10)
-                        .foregroundColor(Color.black)
+                        .foregroundColor(Color.customDarkGray)
                         .opacity(searchText.isEmpty ? 0.0 : 1.0)
                         .onTapGesture {
+                            onClearClicked()
                             UIApplication.shared.endEditing()
                             searchText = ""
                         }
                     ,alignment: .trailing
                 )
                 .focused($isFocused)
-                .accentColor(Color.black)
+                .accentColor(Color.customDarkGray)
                 
         }
         .font(Typography.regular(size: 16))
@@ -52,18 +59,26 @@ struct SearchBarView: View {
                 .shadow(color: .customBlack.opacity(isFocused ? 0.30 : 0.15), radius: 4, x: 0, y: 2)
             
         )
-        .padding()
+        .padding(.horizontal, 10)
         .onChange(of: searchText) { text in
             task?.cancel()
 
             guard !text.isEmpty else { return }
 
             task = Task {
-                try? await Task.sleep(seconds: 0.4)
+                try? await Task.sleep(seconds: 0.3)
                 if !Task.isCancelled {
                     onDebounceSearch()
                 }
             }
+        }
+        .onChange(of: searchText) { text in
+            if text.isEmpty {
+                onClearClicked()
+            }
+        }
+        .onAppear{
+            isFocused = true
         }
     }
 }
@@ -71,6 +86,6 @@ struct SearchBarView: View {
 #Preview {
     SearchBarView(searchText: .constant(""), onDebounceSearch: {
         print("Debounced")
-    })
+    }, onClearClicked: {})
         
 }

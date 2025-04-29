@@ -22,6 +22,7 @@ class HomeViewModel: BaseViewModel {
     @Published var topRatedMovies: [Movie] = RedactionHelper.movies
     
     @Published var isLoading: Bool = false
+    @Published var isHitAllowed: Bool = true
     
     init(
         client: NetworkClient,
@@ -82,6 +83,14 @@ class HomeViewModel: BaseViewModel {
             return true
         }
         return false
+    }
+    
+    func hitDebounce(){
+        Task{
+            isHitAllowed = false
+            try? await Task.sleep(seconds: 1)
+            isHitAllowed = true
+        }
     }
     
 }

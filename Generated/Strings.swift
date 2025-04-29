@@ -16,11 +16,15 @@ internal enum Strings {
   internal static let allMovies = Strings.tr("Localizable", "all_movies", fallback: "All Movies")
   /// Cast
   internal static let cast = Strings.tr("Localizable", "cast", fallback: "Cast")
+  /// Try searching with a different keyword or check your connection.
+  internal static let emptyContentMessage = Strings.tr("Localizable", "empty_content_message", fallback: "Try searching with a different keyword or check your connection.")
   /// Localizable.strings
   ///   Advantage
   /// 
   ///   Created by Paris Makris on 25/4/25.
   internal static let hello = Strings.tr("Localizable", "hello", fallback: "Hello 🖐️")
+  /// No Movies Found
+  internal static let noMovies = Strings.tr("Localizable", "no_movies", fallback: "No Movies Found")
   /// Popular
   internal static let popular = Strings.tr("Localizable", "popular", fallback: "Popular")
   /// Search for movies

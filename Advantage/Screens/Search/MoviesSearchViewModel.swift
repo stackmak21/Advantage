@@ -16,6 +16,7 @@ class MoviesSearchViewModel: BaseViewModel{
     private let client: NetworkClient
     
     private let searchByNameUseCase: SearchByNameUseCase
+    private let fetchPopularMoviesUseCase: FetchPopularMoviesUseCase
     
     @Published var searchedMovies: [Movie] = []
     @Published var searchText: String = ""
@@ -30,6 +31,7 @@ class MoviesSearchViewModel: BaseViewModel{
         self.client = client
         self.router = router
         self.searchByNameUseCase = SearchByNameUseCase(client: client, moviesRepository: moviesRepositoryMock)
+        self.fetchPopularMoviesUseCase = FetchPopularMoviesUseCase(client: client, moviesRepository: moviesRepositoryMock)
     }
     
     deinit{
@@ -41,6 +43,21 @@ class MoviesSearchViewModel: BaseViewModel{
         setLoading()
         let task = Task{
             let response = await searchByNameUseCase.invoke(movieName: searchText)
+            switch response {
+            case .success(let result):
+                searchedMovies = result
+            case .failure(let error):
+                Logger.error(error.statusMessage, showCurrentThread: true)
+            }
+            resetLoading()
+        }
+        tasks.append(task)
+    }
+    
+    func fetchPopularMovies() {
+        setLoading()
+        let task = Task{
+            let response = await fetchPopularMoviesUseCase.invoke()
             switch response {
             case .success(let result):
                 searchedMovies = result

@@ -50,7 +50,7 @@ struct MovieDto: Codable {
             posterPath: self.posterPath ?? "",
             releaseDate: self.releaseDate ?? "",
             title: self.title ?? "",
-            mediaType: self.mediaType ?? MediaType.tv,
+            mediaType: self.mediaType ?? MediaType.movie,
             video: self.video ?? false,
             voteAverage: self.voteAverage ?? 0,
             voteCount: self.voteCount ?? 0

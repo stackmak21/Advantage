@@ -14,6 +14,8 @@
 		F9490A102DC13F73006DB442 /* RedactionHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9490A0F2DC13F73006DB442 /* RedactionHelper.swift */; };
 		F9490A132DC14468006DB442 /* SwiftfulRouting in Frameworks */ = {isa = PBXBuildFile; productRef = F9490A122DC14468006DB442 /* SwiftfulRouting */; };
 		F9490A152DC16750006DB442 /* MediaType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9490A142DC16750006DB442 /* MediaType.swift */; };
+		F9490A172DC17804006DB442 /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9490A162DC17804006DB442 /* ViewExtensions.swift */; };
+		F9490A192DC180FD006DB442 /* EmptyContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9490A182DC180FD006DB442 /* EmptyContent.swift */; };
 		F9C314812DBBE1500034CA06 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C3147F2DBBE1500034CA06 /* Strings.swift */; };
 		F9C314822DBBE1500034CA06 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C3147E2DBBE1500034CA06 /* Fonts.swift */; };
 		F9C314832DBBE1500034CA06 /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C3147D2DBBE1500034CA06 /* Assets.swift */; };
@@ -91,6 +93,8 @@
 		F9490A0D2DC13BB0006DB442 /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		F9490A0F2DC13F73006DB442 /* RedactionHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedactionHelper.swift; sourceTree = "<group>"; };
 		F9490A142DC16750006DB442 /* MediaType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaType.swift; sourceTree = "<group>"; };
+		F9490A162DC17804006DB442 /* ViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtensions.swift; sourceTree = "<group>"; };
+		F9490A182DC180FD006DB442 /* EmptyContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyContent.swift; sourceTree = "<group>"; };
 		F9C314592DBBDA460034CA06 /* Advantage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Advantage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9C3147D2DBBE1500034CA06 /* Assets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
 		F9C3147E2DBBE1500034CA06 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
@@ -348,6 +352,7 @@
 				F9C315382DC100870034CA06 /* UINavigationControllerExtension.swift */,
 				F9490A0D2DC13BB0006DB442 /* BaseViewModel.swift */,
 				F9490A0F2DC13F73006DB442 /* RedactionHelper.swift */,
+				F9490A162DC17804006DB442 /* ViewExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -441,6 +446,7 @@
 				F9C3152D2DC0E83D0034CA06 /* MovieDetailsHeader.swift */,
 				F9C3153A2DC101790034CA06 /* BackButtonView.swift */,
 				F9490A092DC12A69006DB442 /* MoviePreviewCellCiew.swift */,
+				F9490A182DC180FD006DB442 /* EmptyContent.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -633,6 +639,7 @@
 				F9490A0A2DC12A69006DB442 /* MoviePreviewCellCiew.swift in Sources */,
 				F9C315262DC0CCB80034CA06 /* MovieDetails.swift in Sources */,
 				F9C314812DBBE1500034CA06 /* Strings.swift in Sources */,
+				F9490A192DC180FD006DB442 /* EmptyContent.swift in Sources */,
 				F9C314E52DBC4BA20034CA06 /* FetchPopularMoviesUseCase.swift in Sources */,
 				F9C314C62DBC008A0034CA06 /* MovieDBResponseRaw.swift in Sources */,
 				F9C314AD2DBBF1430034CA06 /* Typography.swift in Sources */,
@@ -684,6 +691,7 @@
 				F9C314EC2DBC4BF70034CA06 /* MoviesRepositoryContract.swift in Sources */,
 				F9C314E02DBC42F20034CA06 /* MoviesSearchViewModel.swift in Sources */,
 				F9C3152E2DC0E83D0034CA06 /* MovieDetailsHeader.swift in Sources */,
+				F9490A172DC17804006DB442 /* ViewExtensions.swift in Sources */,
 				F9C314EE2DBC4C030034CA06 /* MoviesRepositoryMock.swift in Sources */,
 				F9C3150F2DBFD61E0034CA06 /* RatingStarsView.swift in Sources */,
 				F9C314FA2DBF80000034CA06 /* Endpoints.swift in Sources */,
