@@ -11,6 +11,7 @@ import SwiftfulRouting
 struct HomeScreen: View {
     
     @StateObject var viewModel: HomeViewModel
+    @State private var scroll: ScrollViewProxy?
     
     init(client: NetworkClient, router: AnyRouter, moviesRepositoryMock: MoviesRepositoryMock? = nil) {
         self._viewModel = StateObject(wrappedValue: HomeViewModel(client: client, moviesRepositoryMock: moviesRepositoryMock, router: router))
@@ -31,21 +32,28 @@ struct HomeScreen: View {
                             .padding(.horizontal)
                             .unredacted()
                         
-                        ScrollView(.horizontal, showsIndicators: false) {
-                            LazyHStack(spacing: 20){
-                                ForEach(viewModel.popularMovies, id: \.id) { movie in
-                                    if movie.isValid{
-                                        PopularMovieThumbnailView(
-                                            movie: movie,
-                                            onClick: { viewModel.navigateToMovieDetailsScreen(movieId: movie.id) }
-                                        )
-                                        .frame(width: 160, height: 280)
+                        ScrollViewReader { scrollProxy in
+                            ScrollView(.horizontal, showsIndicators: false) {
+                                LazyHStack(spacing: 20){
+                                    ForEach(Array(viewModel.popularMovies.enumerated()), id: \.element.id) { index, movie in
+                                        if movie.isValid{
+                                            PopularMovieThumbnailView(
+                                                movie: movie,
+                                                onClick: { viewModel.navigateToMovieDetailsScreen(movieId: movie.id) }
+                                            )
+                                            .id(index)
+                                            .frame(width: 160, height: 280)
+                                        }
                                     }
+                                    .padding(.bottom, 20)
+                                    .padding(.top, 10)
                                 }
-                                .padding(.bottom, 20)
-                                .padding(.top, 10)
+                                .padding(.horizontal)
                             }
-                            .padding(.horizontal)
+                            .onAppear {
+                                scroll = scrollProxy
+                            }
+                            
                         }
                         
                         Text(Strings.topRated)
@@ -67,6 +75,11 @@ struct HomeScreen: View {
                 }
                 .refreshable {
                     viewModel.fetchHomeMovies()
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                        withAnimation(.easeInOut(duration: 1)){
+                            scroll?.scrollTo(0, anchor: .trailing)
+                        }
+                    }
                 }
                 
             }

@@ -15,6 +15,7 @@ struct MoviesRepositoryMock: MoviesRepositoryContract{
     }
     
     func fetchTopRatedMovies() async -> Result<[Movie], MovieDBError>{
+        try? await Task.sleep(seconds: 2)
         return .success(DeveloperPreview.popularMovies)
     }
     
