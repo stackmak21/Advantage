@@ -6,10 +6,12 @@
 //
 
 import Foundation
+import SwiftfulRouting
 
 @MainActor
 class HomeViewModel: BaseViewModel {
     
+    private let router: AnyRouter
     private var tasks: [Task<Void, Never>] = []
     private let client: NetworkClient
     
@@ -23,11 +25,13 @@ class HomeViewModel: BaseViewModel {
     
     init(
         client: NetworkClient,
-        moviesRepositoryMock: MoviesRepositoryContract? = nil
+        moviesRepositoryMock: MoviesRepositoryContract? = nil,
+        router: AnyRouter
     ) {
         self.client = client
         self.fetchPopularMoviesUseCase = FetchPopularMoviesUseCase(client: client, moviesRepository: moviesRepositoryMock)
         self.fetchTopRatedMoviesUseCase = FetchTopRatedMoviesUseCase(client: client, moviesRepository: moviesRepositoryMock)
+        self.router = router
     }
     
     deinit{
@@ -56,21 +60,44 @@ class HomeViewModel: BaseViewModel {
     }
     
     func fetchHomeMovies(){
-        setLoading()
-        let task = Task{
-            await withTaskGroup(of: Void.self) { group in
-                group.addTask {
-                    await self.fetchPopularMovies()
+            setLoading()
+            let task = Task{
+                await withTaskGroup(of: Void.self) { group in
+                    group.addTask {
+                        await self.fetchPopularMovies()
+                    }
+                    group.addTask {
+                        await self.fetchTopRatedMovies()
+                    }
                 }
-                group.addTask {
-                    await self.fetchTopRatedMovies()
+                await MainActor.run {
+                    resetLoading()
                 }
             }
-            await MainActor.run {
-                resetLoading()
-            }
-        }
-        tasks.append(task)
+            tasks.append(task)
     }
     
+    func isReloadAllowed() -> Bool {
+        if popularMovies == RedactionHelper.movies || topRatedMovies == RedactionHelper.movies {
+            return true
+        }
+        return false
+    }
+    
+}
+
+//MARK: - Navigation
+extension HomeViewModel{
+    
+    func navigateToSearchScreen(){
+        router.showScreen(.push) { router in
+            MoviesSearchScreen(client: self.client, router: self.router)
+        }
+    }
+    
+    func navigateToMovieDetailsScreen(movieId: Int){
+        router.showScreen(.push) { router in
+            MovieDetailsScreen(client: self.client, movieId: movieId, router: self.router)
+        }
+    }
 }

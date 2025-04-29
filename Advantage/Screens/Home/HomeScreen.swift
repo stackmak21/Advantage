@@ -6,13 +6,14 @@
 //
 
 import SwiftUI
+import SwiftfulRouting
 
 struct HomeScreen: View {
     
     @StateObject var viewModel: HomeViewModel
     
-    init(client: NetworkClient, moviesRepositoryMock: MoviesRepositoryMock? = nil) {
-        self._viewModel = StateObject(wrappedValue: HomeViewModel(client: client, moviesRepositoryMock: moviesRepositoryMock))
+    init(client: NetworkClient, router: AnyRouter, moviesRepositoryMock: MoviesRepositoryMock? = nil) {
+        self._viewModel = StateObject(wrappedValue: HomeViewModel(client: client, moviesRepositoryMock: moviesRepositoryMock, router: router))
     }
     
     var body: some View {
@@ -21,34 +22,8 @@ struct HomeScreen: View {
             VStack{
                 ScrollView(.vertical, showsIndicators: false) {
                     VStack{
-                        HStack{
-                            VStack{
-                                Group{
-                                    Text(Strings.hello)
-                                        .font(Typography.regular(size: 16))
-                                        .foregroundColor(Color.customBlack)
-                                    Text(Strings.advanceFintech)
-                                        .font(Typography.bold(size: 18))
-                                        .foregroundColor(Color.customBlack)
-                                }
-                                .unredacted()
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                            }
-                            NavigationLink(
-                                destination: {
-                                    MoviesSearchScreen(client: NetworkClient())
-                                },
-                                label: {
-                                    SearchIcon()
-                                        
-                                }
-                            )
-                            .unredacted()
-                            
-                        }
-                        .padding()
-                        
-                        
+                        homeHeader()
+                            .padding()
                         Text(Strings.popular)
                             .font(Typography.medium(size: 18))
                             .foregroundColor(Color.black)
@@ -59,18 +34,11 @@ struct HomeScreen: View {
                         ScrollView(.horizontal, showsIndicators: false) {
                             LazyHStack(spacing: 20){
                                 ForEach(viewModel.popularMovies, id: \.id) { movie in
-                                    NavigationLink(
-                                        destination: {
-                                            MovieDetailsScreen(client: NetworkClient(), movieId: movie.id)
-                                        },
-                                        label: {
-                                            PopularMovieThumbnailView(movie: movie)
-                                                .shadow(color: .customBlack.opacity(0.3), radius: 6, x: 1, y: 2)
-                                                .frame(width: 160, height: 260)
-                                        }
+                                    PopularMovieThumbnailView(
+                                        movie: movie,
+                                        onClick: { viewModel.navigateToMovieDetailsScreen(movieId: movie.id) }
                                     )
-                                    
-                                    
+                                        .frame(width: 160, height: 280)
                                 }
                                 .padding(.bottom, 20)
                                 .padding(.top, 10)
@@ -87,26 +55,52 @@ struct HomeScreen: View {
                         
                         VStack(spacing: 20){
                             ForEach(viewModel.topRatedMovies, id: \.id) { movie in
-                                MoviePreviewCellCiew(movie: movie, onClick: {  })
+                                MoviePreviewCellCiew(movie: movie, onClick: { viewModel.navigateToMovieDetailsScreen(movieId: movie.id) })
                             }
                         }
                         .padding(.horizontal)
                     }
                 }
+                .refreshable {
+                    viewModel.fetchHomeMovies()
+                }
                 
             }
             .onAppear{
-                viewModel.fetchHomeMovies()
+                if viewModel.isReloadAllowed(){
+                    viewModel.fetchHomeMovies()
+                }
             }
         }
-        .redacted(reason: viewModel.isLoading ? .placeholder : [])
+        .redacted(reason: viewModel.isLoading && viewModel.isReloadAllowed() ? .placeholder : [])
+    }
+    
+    private func homeHeader() -> some View {
+        HStack{
+            VStack{
+                Group{
+                    Text(Strings.hello)
+                        .font(Typography.regular(size: 16))
+                        .foregroundColor(Color.customBlack)
+                    Text(Strings.advanceFintech)
+                        .font(Typography.bold(size: 18))
+                        .foregroundColor(Color.customBlack)
+                }
+                .unredacted()
+                .frame(maxWidth: .infinity, alignment: .leading)
+            }
+            SearchIcon(onClick: {
+                viewModel.navigateToSearchScreen()
+            })
+            .unredacted()
+        }
     }
     
 }
 
 #Preview {
     let client: NetworkClient = NetworkClient()
-    NavigationView {
-        HomeScreen(client: client, moviesRepositoryMock: MoviesRepositoryMock())
+    RouterView{ router in
+        HomeScreen(client: client,router: router, moviesRepositoryMock: MoviesRepositoryMock())
     }
 }

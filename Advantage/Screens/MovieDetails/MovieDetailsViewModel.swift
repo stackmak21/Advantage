@@ -6,10 +6,12 @@
 //
 
 import Foundation
+import SwiftfulRouting
 
 @MainActor
-class MovieDetailsViewModel: ObservableObject {
+class MovieDetailsViewModel: BaseViewModel {
     
+    private let router: AnyRouter
     private var tasks: [Task<Void, Never>] = []
     private let client: NetworkClient
     
@@ -21,12 +23,16 @@ class MovieDetailsViewModel: ObservableObject {
     @Published var movieDetails: MovieDetails = MovieDetails()
     @Published var castMembers: [CastMember] = []
     
+    @Published var isLoading: Bool = false
+    
     init(
         client: NetworkClient,
+        router: AnyRouter,
         movieId: Int,
         moviesRepositoryMock: MoviesRepositoryContract? = nil
     ) {
         self.client = client
+        self.router = router
         self.movieId = movieId
         self.fetchMovieDetailsUseCase = FetchMovieDetailsUseCase(client: client, moviesRepository: moviesRepositoryMock)
         self.fetchCastMembersUseCase = FetchCastMemberUseCase(client: client, moviesRepository: moviesRepositoryMock)

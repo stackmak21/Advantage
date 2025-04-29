@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftfulRouting
 
 @main
 struct AdvantageApp: App {
@@ -19,8 +20,8 @@ struct AdvantageApp: App {
     
     var body: some Scene {
         WindowGroup {
-            NavigationView {
-                HomeScreen(client: client)
+            RouterView { router in
+                HomeScreen(client: client, router: router)
             }
         }
     }

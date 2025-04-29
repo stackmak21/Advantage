@@ -6,10 +6,12 @@
 //
 
 import Foundation
+import SwiftfulRouting
 
 @MainActor
-class MoviesSearchViewModel: ObservableObject{
+class MoviesSearchViewModel: BaseViewModel{
     
+    private let router: AnyRouter
     private var tasks: [Task<Void, Never>] = []
     private let client: NetworkClient
     
@@ -18,11 +20,15 @@ class MoviesSearchViewModel: ObservableObject{
     @Published var searchedMovies: [Movie] = []
     @Published var searchText: String = ""
     
+    @Published var isLoading: Bool = false
+    
     init(
         client: NetworkClient,
+        router: AnyRouter,
         moviesRepositoryMock: MoviesRepositoryContract? = nil
     ) {
         self.client = client
+        self.router = router
         self.searchByNameUseCase = SearchByNameUseCase(client: client, moviesRepository: moviesRepositoryMock)
     }
     

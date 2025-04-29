@@ -6,13 +6,14 @@
 //
 
 import SwiftUI
+import SwiftfulRouting
 
 struct MoviesSearchScreen: View {
     
     @StateObject var viewModel: MoviesSearchViewModel
     
-    init(client: NetworkClient, moviesRepositoryMock: MoviesRepositoryMock? = nil) {
-        self._viewModel = StateObject(wrappedValue: MoviesSearchViewModel(client: client, moviesRepositoryMock: moviesRepositoryMock))
+    init(client: NetworkClient, router: AnyRouter, moviesRepositoryMock: MoviesRepositoryMock? = nil) {
+        self._viewModel = StateObject(wrappedValue: MoviesSearchViewModel(client: client, router: router, moviesRepositoryMock: moviesRepositoryMock))
     }
     
     var body: some View {
@@ -82,7 +83,7 @@ struct MoviesSearchScreen: View {
 
 #Preview {
     let client: NetworkClient = NetworkClient()
-    NavigationView {
-        MoviesSearchScreen(client: client, moviesRepositoryMock: MoviesRepositoryMock())
+    RouterView{ router in
+        MoviesSearchScreen(client: client,router: router, moviesRepositoryMock: MoviesRepositoryMock())
     }
 }

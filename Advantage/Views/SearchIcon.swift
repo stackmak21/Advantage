@@ -9,9 +9,11 @@ import SwiftUI
 
 struct SearchIcon: View {
     
+    let onClick: () -> Void
     
     var body: some View {
-        HStack{
+        Button(action: { onClick() },
+               label: {
             Image(systemName: "magnifyingglass")
                 .resizable()
                 .aspectRatio(contentMode: .fit)
@@ -21,11 +23,12 @@ struct SearchIcon: View {
                 .background(.customWhite)
                 .clipShape(RoundedRectangle(cornerRadius: 12))
                 .shadow(color: .customDarkGray.opacity(0.2), radius: 6, x: 1, y: 2)
-            
-        }
+        })
+        .buttonStyle(PlainButtonStyle())
+        
     }
 }
 
 #Preview {
-    SearchIcon()
+    SearchIcon(onClick: {})
 }
