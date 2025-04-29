@@ -10,8 +10,8 @@ import Foundation
 // swiftlint:disable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:disable nesting type_body_length type_name vertical_whitespace_opening_braces
 internal enum Strings {
-  /// Advantage Fintech
-  internal static let advanceFintech = Strings.tr("Localizable", "advance_fintech", fallback: "Advantage Fintech")
+  /// Advantage FSE
+  internal static let advanceFintech = Strings.tr("Localizable", "advance_fintech", fallback: "Advantage FSE")
   /// All Movies
   internal static let allMovies = Strings.tr("Localizable", "all_movies", fallback: "All Movies")
   /// Cast
